@@ -14,7 +14,7 @@ FireChan is a basic 4chan clone  with following features:
 ![Alt text](screenshot0.png)
 ![Alt text](screenshot1.png)
 
-###Screenshots
+###Demo
 [Demo apk](https://drive.google.com/file/d/0BwwgQHARYYdiSWNCNnJrRHVtVGM/view?usp=sharing)
 
 ## Getting Started
