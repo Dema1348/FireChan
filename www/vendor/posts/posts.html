@@ -1,0 +1,70 @@
+
+<ion-view class="posts ">
+	<ion-nav-title >
+		{{vm.title}}
+	</ion-nav-title>	
+	<ion-nav-buttons side="right">
+	      <button class="button" ng-click="vm.new()">Start a New Thread
+	      </button>
+	</ion-nav-buttons>
+      <ion-content class="padding" delegate-handle="focusText">
+
+      	<div ng-repeat="post in vm.posts | orderBy:'-time'" class="wrap" id="thread-{{post.num}}" >
+      		<div class="item item-divider  header ">
+      			<!-- <i class="icon ion-android-more-vertical "></i> -->
+      			<span class="anonymous">{{post.author || "Anonymous"}}</span> 
+      			<span class="other">                        
+      				<span on-hold="onHold(post.time)" >
+                                    {{post.time | date:'dd/MM/yyyy(EEE)HH:mm:ss'}}
+                              </span>
+      				<span ng-click="newReplyDirect(post.num,post,vm.id) ">
+                                    No.{{post.num}}
+                              </span>
+                        </span>
+      	 	</div>
+	      	 <div class="item item-text-wrap content" ng-class="{'active' : post.num == threadActivo}">
+	      	      <div class="img" ng-if="post.img">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/c_scale,h_150/{{post.img}}.{{post.imgFormat}}"  class="mini" ng-click='expand(post)' ng-if="!post.big">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/{{post.img}}.{{post.imgFormat}}"  class="full-image" ng-click='expand(post)'  ng-if="post.big">
+                              <p class="info-img" ng-if="post.big">{{post.img}}.{{post.imgFormat}}</p>
+                              <p class="info-img">{{post.imgBytes | bytes}} {{post.imgFormat | uppercase}}</p>                                
+                        </div>
+	      	      <h2 class="text"  ng-repeat="parrafo in post.textSplit track by $index" ng-class="'{{parrafo.other}}'">
+                              {{parrafo.text}}
+                        </h2>
+	      	 </div>
+	      	 <div class="item item-button-right header ">
+      			<span class="count">{{post.count || '0' }} Replies / {{post.countImg || '0' }} Images</span>
+      			<a class="button" href="#/app/{{vm.id}}/thread/{{post.$id}}">View Tread</a>
+      	 	 </div>
+     
+      	<div class="paddingComment" ng-repeat="comment in post.comments " id="thread-{{comment.num}}">
+
+      		<div class="item item-divider  header ">
+                        <span class="anonymous">{{comment.author || "Anonymous"}}</span> 
+                        <span class="other">
+                              <span on-hold="onHold(comment.time)" >
+                                    {{comment.time | date:'dd/MM/yyyy(EEE)HH:mm:ss'}}
+                              </span>
+                              <span ng-click="newReplyDirect(comment.num,post,vm.id)">
+                                    No.{{comment.num}}
+                              </span>
+                        </span>
+                  </div>
+	      	<div class="item item-text-wrap content " ng-class="{'active' : comment.num == threadActivo}">
+                        <div class="img" ng-if="comment.img">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/c_scale,h_150/{{comment.img}}.{{comment.imgFormat}}"  class="mini" ng-click='expand(comment)' ng-if="!comment.big">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/{{comment.img}}.{{comment.imgFormat}}"  class="full-image" ng-click='expand(comment)'  ng-if="comment.big">
+                              <p class="info-img" ng-if="comment.big">{{comment.img}}.{{comment.imgFormat}}</p>
+                              <p class="info-img">{{comment.imgBytes | bytes}} {{comment.imgFormat | uppercase}}</p>                                
+                        </div>
+                        <h2 class="text"  ng-repeat="parrafo in comment.textSplit track by $index" ng-class="'{{parrafo.other}}'" ng-click=" parrafo.id && goTo(parrafo.id)">
+                              {{parrafo.text}}
+                        </h2>
+                   </div>
+      	</div>
+
+      	</div>
+  	  </ion-content>
+  	 
+</ion-view>

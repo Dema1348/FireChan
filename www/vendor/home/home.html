@@ -1,0 +1,46 @@
+<ion-view class="home">
+	  <ion-nav-title >
+		FireChan
+	  </ion-nav-title>	
+      <ion-content>
+      		<div class="padding">
+      			<ion-item class=" item-image">
+				<img src="img/firechan.png" alt="">
+			</ion-item>
+			
+			<div class="list list-inset">
+			
+			    <div class="item item-divider  header ">
+			      Boards
+			    </div>
+			     <a class="item thread"  href="#/app/b">
+			      Random
+			    </a>
+			    <a class="item thread" href="#/app/g">
+			      Technology
+			    </a>
+			    <a class="item thread" href="#/app/x">
+			      Paranormal
+			    </a>
+	
+			    
+			</div>
+
+
+			<div class="list list-inset">
+			
+			    <div class="item item-divider  header ">
+			      Stats
+			    </div>
+			     <div class="item thread" >
+			      Total Posts: {{vm.total.count || "Cargando..."}}
+			    </div>
+			    
+	
+			    
+			</div>
+  		
+      		</div>
+			
+  	  </ion-content>
+</ion-view>

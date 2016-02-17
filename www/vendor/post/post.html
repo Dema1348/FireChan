@@ -1,0 +1,65 @@
+
+<ion-view class="posts ">
+	<ion-nav-title >
+		{{vm.title}}
+	</ion-nav-title>	
+	<ion-nav-buttons side="right">
+	      <button class="button " ng-click="vm.new()">Post Reply
+	      </button>
+	</ion-nav-buttons>
+      <ion-content class="padding"  delegate-handle="focusText"  >
+      	<div  class="wrap">
+      		<div class="item item-divider  header " id="thread-{{vm.post.num}}">
+      			<!-- <i class="icon ion-android-more-vertical "></i> -->
+      			<span class="anonymous">{{vm.post.author || "Anonymous"}}</span> 
+      			<span class="other">
+      				<span  on-hold="onHold(vm.post.time)" >
+                                    {{vm.post.time | date:'dd/MM/yyyy(EEE)HH:mm:ss'}}
+                              </span>
+      				<span ng-click="newReplyDirect(vm.post.num,vm.post,vm.id)">
+                                    No.{{vm.post.num}}
+                              </span>
+                        </span>
+      	 	</div>
+	      	 <div class="item item-text-wrap content" ng-class="{'active' : vm.post.num == threadActivo}">
+	      	      <div class="img" ng-if="vm.post.img">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/c_scale,h_150/{{vm.post.img}}.{{vm.post.imgFormat}}"  class="mini" ng-click='expand(vm.post)' ng-if="!vm.post.big">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/{{vm.post.img}}.{{vm.post.imgFormat}}"  class="full-image" ng-click='expand(vm.post)'  ng-if="vm.post.big">
+                              <p class="info-img" ng-if="vm.post.big">{{vm.post.img}}.{{vm.post.imgFormat}}</p>
+                              <p class="info-img">{{vm.post.imgBytes | bytes}} {{vm.post.imgFormat | uppercase}}</p>                                
+                        </div>
+	      	      <h2 class="text"  ng-repeat="parrafo in vm.post.textSplit track by $index" ng-class="'{{parrafo.other}}'">
+                              {{parrafo.text}}
+                        </h2>
+	      	 </div>
+      
+      	<div class="paddingComment" ng-repeat="comment in vm.comments " id="thread-{{comment.num}}">
+
+      		<div class="item item-divider  header ">
+                        <span class="anonymous">{{comment.author || "Anonymous"}}</span> 
+                        <span class="other">
+                              <span on-hold="onHold(comment.time)" >
+                                    {{comment.time | date:'dd/MM/yyyy(EEE)HH:mm:ss'}}
+                              </span>
+                              <span ng-click="newReplyDirect(comment.num,vm.post,vm.id)">
+                                    No.{{comment.num}}
+                              </span>
+                         </span>
+                  </div>
+	      	<div class="item item-text-wrap content" ng-class="{'active' : comment.num == threadActivo}" >
+                        <div class="img" ng-if="comment.img">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/c_scale,h_150/{{comment.img}}.{{comment.imgFormat}}"  class="mini" ng-click='expand(comment)' ng-if="!comment.big">
+                              <img ng-src="http://res.cloudinary.com/dqqycrbvi/image/upload/{{comment.img}}.{{comment.imgFormat}}"  class="full-image" ng-click='expand(comment)'  ng-if="comment.big">
+                              <p class="info-img" ng-if="comment.big">{{comment.img}}.{{comment.imgFormat}}</p>
+                              <p class="info-img">{{comment.imgBytes | bytes}} {{comment.imgFormat | uppercase}}</p>                                
+                        </div>
+                        <h2 class="text"  ng-repeat="parrafo in comment.textSplit track by $index"  ng-class="'{{parrafo.other}}'" ng-click=" parrafo.id && goTo(parrafo.id)">
+                              {{parrafo.text}}
+                        </h2>
+                   </div>
+      	</div>
+
+      	</div>
+  	  </ion-content>
+  	 
+</ion-view>

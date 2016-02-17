@@ -1,0 +1,29 @@
+
+<ion-modal-view class="newPost">
+	<ion-header-bar class="header">
+      <h1 class="title">Start a New Thread</h1>
+	  <button class="button " ng-click="vm.closeModal()">Cancel</button>
+    </ion-header-bar>		
+      <ion-content >
+      	<div class="list">
+              <label class="item  item-input">
+                <span class="input-label" >Options</span>
+                <textarea msd-elastic ng-model="vm.post.options"  >
+                </textarea>
+              </label>
+              <label class="item  item-input">
+                <span class="input-label">Comment</span>
+               <textarea msd-elastic ng-model="vm.post.text">
+              </textarea>
+              </label>
+              <label class="item  item-input">
+                <span class="input-label">File</span>
+                <button class="button button-full" ng-click="vm.uploadFile()">Select File</button>
+              </label>
+              <p class="file">{{vm.imgName || "No file chosen"}}</p>
+              <div class="padding">
+                     <button class="button button-full" ng-click="vm.newPost()" ng-disabled="!vm.img">Post</button>       
+              </div>
+            </div>
+  	  </ion-content>
+</ion-modal-view>

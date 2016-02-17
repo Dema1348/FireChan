@@ -1,0 +1,28 @@
+<ion-modal-view class="newPost">
+	<ion-header-bar class="header">
+      <h1 class="title">Reply to Thread No.{{number}}</h1>
+	  <button class="button " ng-click="closeModalReply()">Cancel</button>
+    </ion-header-bar>		
+      <ion-content >
+      	<div class="list">
+              <label class="item  item-input">
+                <span class="input-label" >Options</span>
+                <textarea msd-elastic ng-model="reply.options"  >
+                </textarea>
+              </label>
+              <label class="item  item-input">
+                <span class="input-label">Coment</span>
+               <textarea msd-elastic ng-model="reply.text">
+              </textarea>
+              </label>
+              <label class="item  item-input">
+                <span class="input-label">File</span>
+                <button class="button button-full" ng-click="uploadFile()">Select File</button>
+              </label>
+               <p class="file">{{vm.imgName || "No file chosen"}}</p>
+              <div class="padding">
+                     <button class="button button-full" ng-click="newReply()" ng-disabled="!reply.text && !img" >Post</button>       
+              </div>
+            </div>
+  	  </ion-content>
+</ion-modal-view>

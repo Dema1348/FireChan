@@ -1,0 +1,52 @@
+{
+  "name": "angular-contextual-date",
+  "version": "0.4.0",
+  "authors": [
+    "Helioscene",
+    "jgr3go"
+  ],
+  "description": "A lightweight Angular directive/filter/service to format a date so it displays a contextual relative time (\"how long ago\") in addition to the formatted normal date.",
+  "main": "dist/angular-contextual-date.js",
+  "keywords": [
+    "angular",
+    "relative",
+    "date",
+    "time",
+    "ago",
+    "contextual",
+    "filter",
+    "moment"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Helioscene/angular-contextual-date",
+  "ignore": [
+    "src",
+    "demo",
+    "tests",
+    ".gitignore",
+    ".jscsrc",
+    ".jshintrc",
+    "bower.json",
+    "package.json",
+    "*.md",
+    "gulpfile.js",
+    "karma.conf.js"
+  ],
+  "dependencies": {
+    "angular": ">=1.3.0 <2.0.0"
+  },
+  "devDependencies": {
+    "bardjs": "~0.1.4",
+    "angular-mocks": ">=1.3.0 <2.0.0"
+  },
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "14bc43d9fad1faecfc364d26e6becd7e0dd8e538"
+  },
+  "_source": "git://github.com/Helioscene/angular-contextual-date.git",
+  "_target": "^0.4.0",
+  "_originalSource": "angular-contextual-date",
+  "_direct": true
+}
