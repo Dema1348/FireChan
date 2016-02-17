@@ -1,6 +1,6 @@
 # FireChan
 =====================
-This example application demonstates how to use [Firebase](https://www.firebase.com/) and [Cloudinary](https://www.cloudinary.com) with the [Ionic Framework](http://ionicframework.com/)
+This example application showing how to use [Firebase](https://www.firebase.com/) and [Cloudinary](https://www.cloudinary.com) with the [Ionic Framework](http://ionicframework.com/)
 ##Features
 FireChan is a basic 4chan clone  with following features:
 - Users can create a new thread 
