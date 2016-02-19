@@ -1,6 +1,6 @@
 # FireChan
 =====================
-This example application showing how to use [Firebase](https://www.firebase.com/) and [Cloudinary](https://www.cloudinary.com) with the [Ionic Framework](http://ionicframework.com/)
+This example application show how to use [Firebase](https://www.firebase.com/) and [Cloudinary](https://www.cloudinary.com) with the [Ionic Framework](http://ionicframework.com/)
 ##Features
 FireChan is a basic 4chan clone  with following features:
 - Users can create a new thread 
@@ -22,14 +22,14 @@ FireChan is a basic 4chan clone  with following features:
 ### Configure Firebase
 
 0. Go to your [Firebase Dashboard](https://www.firebase.com/account/) and create a new Firebase app.
-0. Edit [`constants.js`](www/vendor/core/constants.js) and change the value of `FBURL` to point to your Firebase.
+1. Edit [`constants.js`](www/vendor/core/constants.js) and change the value of `FBURL` to point to your Firebase.
 
 
 ### Configure Cloudinary
 
 0. Go to your [Cloudinary Settings](https://cloudinary.com/console/settings/upload) and add uploading preset unsigned.
-0. Edit [`constants.js`](www/vendor/core/constants.js) and change the value of `CLOUDINARY_URI` with your api upload .
-0. Edit [`constants.js`](www/vendor/core/constants.js) and change `CLOUDINARY_UPLOAD_PRESET` with your upload preset.
+1. Edit [`constants.js`](www/vendor/core/constants.js) and change the value of `CLOUDINARY_URI` with your api upload .
+2. Edit [`constants.js`](www/vendor/core/constants.js) and change `CLOUDINARY_UPLOAD_PRESET` with your upload preset.
 
 
 **Install Ionic**
